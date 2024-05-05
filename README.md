@@ -1,38 +1,33 @@
-## Overview
+## What This Script Does
 
-This Google Apps Script (GAPS) adds custom functionality to Google Sheets, allowing users to search for rows containing specific keywords or predefined categories (like social media or e-commerce sites) and delete them directly from the spreadsheet. The script introduces a custom menu titled 'Search and Delete' with options for a customizable keyword search or a preset social media search.
+Hey there! 👋 This cool script transforms your Google Sheets into a super tool that lets you zap away rows you don't need anymore. Whether you're looking to clear out stuff like social media links, e-commerce sites, or specific client websites, this script adds a handy menu called 'Search and Delete' to make it all a breeze.
 
-## Features
+## Cool Features
 
-- **Custom Menu Integration**: Seamlessly integrates into the Google Sheets UI, adding a 'Search and Delete' menu for easy access.
-- **Customizable Keyword Search**: Enables users to input their own search terms, offering flexibility for various use cases.
-- **Preset Category Searches**: Comes with predefined keyword sets for quick searches within popular categories such as Social Media and E-commerce.
-- **Automated Row Deletion**: Efficiently scans and deletes rows that match the search criteria, streamlining data clean-up tasks.
-- **User-friendly Prompts and Alerts**: Utilizes Google Sheets' UI prompts and alerts to gather input and provide feedback on the operation's outcome.
+- **Easy Menu**: Just a click adds a new 'Search and Delete' menu to your Sheets.
+- **Search Your Way**: Type in what you’re looking for, and let the script find it—whether it’s words, phrases, or website URLs.
+- **Ready-Made Searches**: We’ve set up some quick searches for big categories like social media and online shopping sites.
+- **New! Client Lookup**: Got a list of clients? This new option lets you search for any client websites listed in your sheet and clean them up fast.
+- **Auto-Cleanup**: Finds those rows and deletes them for you. No fuss!
+- **Friendly Alerts**: Every step of the way, you get neat prompts and alerts to keep you in the loop about what’s happening.
 
-## How It Works
+## How to Use It
 
-1. **Menu Addition**: Upon opening the spreadsheet, the script adds a 'Search and Delete' menu with options for 'Custom Search' and 'Social Search'.
-2. **Custom Search**: When selected, prompts the user to enter keywords separated by commas. The script then searches for and deletes rows containing any of these keywords.
-3. **Social Search**: Initiates a search using a preset list of domains related to social media, e-commerce, and other categories, deleting matching rows.
-4. **Deletion Feedback**: After processing, displays an alert indicating the number of rows deleted as a result of the search.
+1. **Start with the Script Editor**: Open up your Google Sheets, hit `Extensions > Apps Script`, and you’re there.
+2. **Drop in the Script**: Copy the script we provided and paste it into the script editor. Hit save.
+3. **Refresh Your Sheet**: Close and reopen your Google Sheets to see the new 'Search and Delete' menu.
+4. **Get Searching**: Pick from the menu to start your custom, preset, or client-specific search and watch as those unnecessary rows disappear.
 
-## Usage
+## Make It Yours
 
-1. **Open Script Editor**: In your Google Sheets document, go to `Extensions > Apps Script` to open the script editor.
-2. **Paste the Script**: Copy the provided script into the script editor and save your changes.
-3. **Reload the Sheet**: Close and reopen the Google Sheets document to see the 'Search and Delete' menu.
-4. **Perform Searches**: Use the menu options to perform custom or preset searches and automatically delete matching rows.
+- **Change the Categories**: Tweak the list in the `socialSearch` function to match what you’re looking for.
+- **Update Client List**: Edit the clients in the `clientSearch` function to keep your searches up-to-date with your current client roster.
+- **Personalize Messages**: Adjust the script’s prompts and alerts to make them sound like you, or to make instructions clearer for your team.
 
-## Customization
+## Just a Heads Up
 
-- **Modifying Categories**: Edit the `categories` object within the `socialSearch` function to update, add, or remove keyword sets based on your needs.
-- **Adjusting Prompts**: Customize the prompts and alert messages in the script to tailor the user interface to your preferences or to provide more detailed instructions.
-
-## Ethical Use
-
-This script is designed to assist with data management tasks within Google Sheets. Users should ensure they have the right to modify and delete the data they are working with and should use this tool responsibly to avoid accidental data loss.
+Use this script wisely! Make sure you’re allowed to mess with the data you’re planning to delete, and always double-check before you wipe anything out to avoid oops moments.
 
 ## Disclaimer
 
-This script is provided as-is for educational and productivity-enhancing purposes. Users should thoroughly test the script on non-critical data and ensure they understand its effects before applying it to important documents.
+This script is all yours to use for making your data management easier and more fun. Just remember, it’s offered as-is, so play around with it on some test data first to make sure everything works just the way you want.
