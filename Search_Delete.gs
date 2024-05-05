@@ -4,6 +4,7 @@ function onOpen() {
   ui.createMenu('Search and Delete')
       .addItem('Custom Search', 'searchAndDeleteRows')
       .addItem('Social Search', 'socialSearch')
+      .addItem('Client Search', 'clientSearch')
       .addToUi();
 }
 
@@ -33,7 +34,7 @@ function socialSearch() {
       "discord.com", "twitch.tv", "clubhouse.com", "mastodon.social",
       "vimeo.com", "flickr.com", "soundcloud.com", "goodreads.com", 
       "strava.com", "medium.com", "behance.net", "dribbble.com", 
-      "nextdoor.com", "viber.com"
+      "nextdoor.com", "viber.com", "github.com", "linktr.ee"
     ],
     "E-commerce": [
       "etsy", "amazon", "walmart.com", "target.com", "aliexpress.com", 
@@ -44,7 +45,8 @@ function socialSearch() {
     ],
     "Information/Knowledge Platforms": [
       "wikipedia.org", "britannica.com", "wiktionary.org", "scholarpedia.org", 
-      "infoplease.com", "citizendium.org"
+      "infoplease.com", "citizendium.org", "yelp.com", "dnb.com", "chamberofcommerce.com",
+      "kickstarter.com", "bbb.org"
     ],
     "Others (Media Sharing, Blogging, etc.)": [
       "vimeo.com", "flickr.com", "medium.com", "blogger.com", "archive.org",
@@ -65,6 +67,97 @@ function socialSearch() {
   var allKeywords = [].concat.apply([], Object.values(categories));
   processSearch(allKeywords);
 }
+
+function clientSearch() {
+    var clients = [
+        "dianealber.com",
+        "istrap.com.au",
+        "chrisheria.com",
+        "lushyintimates.com",
+        "lacocoboutique.com",
+        "cocoboutique.ie",
+        "cocoboutique.com",
+        "custompawjewelry.com",
+        "mysa.wine",
+        "mushroomdesign.com",
+        "canadagrowsupplies.com",
+        "quebeccannabisseeds.com",
+        "torontocannabisseeds.com",
+        "hypeseeds.com",
+        "thinkmushrooms.ca",
+        "gleebtm.com",
+        "solcbd.com",
+        "superbrandtools.com",
+        "magicmen.com.au",
+        "theanimecollective.com",
+        "1st-art-gallery.com",
+        "lynxshop.com",
+        "everestplunge.co.nz",
+        "innerwisdomstore.com",
+        "pleafs.com",
+        "crystalenergy.shop",
+        "neonicons.com",
+        "nimasound.com",
+        "helpmedicalsupplies.com",
+        "studio-makeup.com",
+        "infantlock.com",
+        "serenitycbd.com",
+        "slaapondersterren.nl",
+        "sculptneonsigns.com",
+        "fruitsnrootzuk.com",
+        "glacierfreshfilter.com",
+        "famivita.com.br",
+        "kanvaskingdomgallery.com",
+        "bareluxeskincare.com",
+        "bareluxe.ca",
+        "bareluxeskincare.ca",
+        "mrswordsmith.com",
+        "thetrost.com",
+        "maceoo.com",
+        "pnuff.com",
+        "orasamazingherbal.com",
+        "myseoulbox.com",
+        "schaaftools.com",
+        "nutritionfaktory.com",
+        "nourished3.com",
+        "kultsnack.com",
+        "sultanspalace.de",
+        "luxarmy.store",
+        "lyfefuel.com",
+        "luckychick.com",
+        "healiumhair.com",
+        "earthsecret.com",
+        "gopurebeauty.com",
+        "basmalabeads.com",
+        "beautyfixmedspa.com",
+        "eracleaskincare.com",
+        "ediblehealth.com",
+        "theweebean.com",
+        "1dropgallery.com",
+        "planetofthevapes.com",
+        "featherbaby.com",
+        "getmindright.com",
+        "decornation.in",
+        "alphabetforhumanity.com",
+        "bigmoods.com",
+        "bonneetfilou.com",
+        "materiae.com",
+        "hydratem8.com",
+        "docmillersports.com",
+        "greentechpackaging.com",
+        "jaezhane.com",
+        "mywellnesstar.com",
+        "nikis.com",
+        "ionskincare.com"
+    ];    
+  
+    var ui = SpreadsheetApp.getUi();
+    var message = "You are about to search for the following clients:\n\n" + clients.join("\n");
+    
+    ui.alert(message);
+    processSearch(clients);
+  }
+  
 
 
 function processSearch(keywords) {
