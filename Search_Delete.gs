@@ -25,164 +25,176 @@ function onOpen() {
       ui.alert('Operation cancelled.');
     }
   }
-  
-  function socialSearch() {
-    var categories = {
-      "Social Media": [
-        "facebook.com", "youtube.com", "whatsapp.com", "instagram.com", 
-        "messenger.com", "wechat.com", "tiktok.com", "snapchat.com", 
-        "telegram.org", "twitter.com", "pinterest.com", "linkedin.com", 
-        "qq.com", "tumblr.com", "reddit.com", "quora.com", 
-        "discord.com", "twitch.tv", "clubhouse.com", "mastodon.social",
-        "vimeo.com", "flickr.com", "soundcloud.com", "goodreads.com", 
-        "strava.com", "medium.com", "behance.net", "dribbble.com", 
-        "nextdoor.com", "viber.com", "github.com", "linktr.ee"
-      ],
-      "E-commerce": [
-        "etsy", "amazon", "walmart.com", "target.com", "aliexpress.com", 
-        "overstock.com", "newegg.com", "craigslist.org", "bonanza.com", 
-        "gumtree.com", "mercadolibre.com", "rakuten.com", "temu.com",
-        "artfire.com", "zibbet.com", "bigcartel.com", "storenvy.com", "magento.com",
-        "wayfair.com", "jd.com", "flipkart.com", "asos.com", "zalando.com"
-      ],
-      "Information/Knowledge Platforms": [
-        "wikipedia.org", "britannica.com", "wiktionary.org", "scholarpedia.org", 
-        "infoplease.com", "citizendium.org", "yelp.com", "dnb.com", "chamberofcommerce.com",
-        "kickstarter.com", "bbb.org"
-      ],
-      "Others (Media Sharing, Blogging, etc.)": [
-        "vimeo.com", "flickr.com", "medium.com", "blogger.com", "archive.org",
-        "coursera.org"
-      ]
-    };
-  
-  
+
+function getClientSearchTerms() { // define the client list
+    return [
+        "dianealber.com",
+        "istrap.com.au",
+        "chrisheria.com",
+        "lushyintimates.com",
+        "lacocoboutique.com",
+        "cocoboutique.ie",
+        "cocoboutique.com",
+        "custompawjewelry.com",
+        "mysa.wine",
+        "mushroomdesign.com",
+        "canadagrowsupplies.com",
+        "quebeccannabisseeds.com",
+        "torontocannabisseeds.com",
+        "hypeseeds.com",
+        "thinkmushrooms.ca",
+        "gleebtm.com",
+        "solcbd.com",
+        "superbrandtools.com",
+        "magicmen.com.au",
+        "theanimecollective.com",
+        "1st-art-gallery.com",
+        "lynxshop.com",
+        "everestplunge.co.nz",
+        "innerwisdomstore.com",
+        "pleafs.com",
+        "crystalenergy.shop",
+        "neonicons.com",
+        "nimasound.com",
+        "helpmedicalsupplies.com",
+        "studio-makeup.com",
+        "infantlock.com",
+        "serenitycbd.com",
+        "slaapondersterren.nl",
+        "sculptneonsigns.com",
+        "fruitsnrootzuk.com",
+        "glacierfreshfilter.com",
+        "famivita.com.br",
+        "kanvaskingdomgallery.com",
+        "bareluxeskincare.com",
+        "bareluxe.ca",
+        "bareluxeskincare.ca",
+        "mrswordsmith.com",
+        "thetrost.com",
+        "maceoo.com",
+        "pnuff.com",
+        "orasamazingherbal.com",
+        "myseoulbox.com",
+        "schaaftools.com",
+        "nutritionfaktory.com",
+        "nourished3.com",
+        "kultsnack.com",
+        "sultanspalace.de",
+        "luxarmy.store",
+        "lyfefuel.com",
+        "luckychick.com",
+        "healiumhair.com",
+        "earthsecret.com",
+        "gopurebeauty.com",
+        "basmalabeads.com",
+        "beautyfixmedspa.com",
+        "eracleaskincare.com",
+        "ediblehealth.com",
+        "theweebean.com",
+        "1dropgallery.com",
+        "planetofthevapes.com",
+        "featherbaby.com",
+        "getmindright.com",
+        "decornation.in",
+        "alphabetforhumanity.com",
+        "bigmoods.com",
+        "bonneetfilou.com",
+        "materiae.com",
+        "hydratem8.com",
+        "docmillersports.com",
+        "greentechpackaging.com",
+        "jaezhane.com",
+        "mywellnesstar.com",
+        "nikis.com",
+        "ionskincare.com"
+    ];   
+}
+
+function getSocialAndECommerceSearchTerms() { // define the social websites
+    return {
+        "Social Media": [
+          "facebook.com", "youtube.com", "whatsapp.com", "instagram.com", 
+          "messenger.com", "wechat.com", "tiktok.com", "snapchat.com", 
+          "telegram.org", "twitter.com", "pinterest.com", "linkedin.com", 
+          "qq.com", "tumblr.com", "reddit.com", "quora.com", 
+          "discord.com", "twitch.tv", "clubhouse.com", "mastodon.social",
+          "vimeo.com", "flickr.com", "soundcloud.com", "goodreads.com", 
+          "strava.com", "medium.com", "behance.net", "dribbble.com", 
+          "nextdoor.com", "viber.com", "github.com", "linktr.ee"
+        ],
+        "E-commerce": [
+          "etsy", "amazon", "walmart.com", "target.com", "aliexpress.com", 
+          "overstock.com", "newegg.com", "craigslist.org", "bonanza.com", 
+          "gumtree.com", "mercadolibre.com", "rakuten.com", "temu.com",
+          "artfire.com", "zibbet.com", "bigcartel.com", "storenvy.com", "magento.com",
+          "wayfair.com", "jd.com", "flipkart.com", "asos.com", "zalando.com"
+        ],
+        "Information/Knowledge Platforms": [
+          "wikipedia.org", "britannica.com", "wiktionary.org", "scholarpedia.org", 
+          "infoplease.com", "citizendium.org", "yelp.com", "dnb.com", "chamberofcommerce.com",
+          "kickstarter.com", "bbb.org"
+        ],
+        "Others (Media Sharing, Blogging, etc.)": [
+          "vimeo.com", "flickr.com", "medium.com", "blogger.com", "archive.org",
+          "coursera.org"
+        ]
+      };
+}
+
+function getNoReplySearchTerms() { // define the noreply keywords
+    return [
+        "noreply", "no-reply", "reply"
+    ];
+}
+
+
+function clientSearch() {
     var ui = SpreadsheetApp.getUi();
-    var message = "You are about to search for:\n";
-  
-    for (var category in categories) {
-      message += "\n" + category + ":\n" + categories[category].join("\n") + "\n";
-    }
-  
+    var clients = getClientSearchTerms();
+    var message = "You are about to search for the following clients:\n\n" + clients.join("\n");
+    
     ui.alert(message);
-  
-    var allKeywords = [].concat.apply([], Object.values(categories));
+    processSearch(clients);
+}
+
+function socialSearch() {
+    var categories = getSocialAndECommerceSearchTerms();
+    var ui = SpreadsheetApp.getUi();
+    
+    // Extract all category arrays and flatten into a single array
+    var allKeywords = Object.values(categories).reduce((acc, val) => acc.concat(val), []);
+    var message = "You are about to search for:\n" + allKeywords.join("\n");
+    
+    ui.alert(message);
     processSearch(allKeywords);
-  }
-  
-  function clientSearch() {
-      var clients = [
-          "dianealber.com",
-          "istrap.com.au",
-          "chrisheria.com",
-          "lushyintimates.com",
-          "lacocoboutique.com",
-          "cocoboutique.ie",
-          "cocoboutique.com",
-          "custompawjewelry.com",
-          "mysa.wine",
-          "mushroomdesign.com",
-          "canadagrowsupplies.com",
-          "quebeccannabisseeds.com",
-          "torontocannabisseeds.com",
-          "hypeseeds.com",
-          "thinkmushrooms.ca",
-          "gleebtm.com",
-          "solcbd.com",
-          "superbrandtools.com",
-          "magicmen.com.au",
-          "theanimecollective.com",
-          "1st-art-gallery.com",
-          "lynxshop.com",
-          "everestplunge.co.nz",
-          "innerwisdomstore.com",
-          "pleafs.com",
-          "crystalenergy.shop",
-          "neonicons.com",
-          "nimasound.com",
-          "helpmedicalsupplies.com",
-          "studio-makeup.com",
-          "infantlock.com",
-          "serenitycbd.com",
-          "slaapondersterren.nl",
-          "sculptneonsigns.com",
-          "fruitsnrootzuk.com",
-          "glacierfreshfilter.com",
-          "famivita.com.br",
-          "kanvaskingdomgallery.com",
-          "bareluxeskincare.com",
-          "bareluxe.ca",
-          "bareluxeskincare.ca",
-          "mrswordsmith.com",
-          "thetrost.com",
-          "maceoo.com",
-          "pnuff.com",
-          "orasamazingherbal.com",
-          "myseoulbox.com",
-          "schaaftools.com",
-          "nutritionfaktory.com",
-          "nourished3.com",
-          "kultsnack.com",
-          "sultanspalace.de",
-          "luxarmy.store",
-          "lyfefuel.com",
-          "luckychick.com",
-          "healiumhair.com",
-          "earthsecret.com",
-          "gopurebeauty.com",
-          "basmalabeads.com",
-          "beautyfixmedspa.com",
-          "eracleaskincare.com",
-          "ediblehealth.com",
-          "theweebean.com",
-          "1dropgallery.com",
-          "planetofthevapes.com",
-          "featherbaby.com",
-          "getmindright.com",
-          "decornation.in",
-          "alphabetforhumanity.com",
-          "bigmoods.com",
-          "bonneetfilou.com",
-          "materiae.com",
-          "hydratem8.com",
-          "docmillersports.com",
-          "greentechpackaging.com",
-          "jaezhane.com",
-          "mywellnesstar.com",
-          "nikis.com",
-          "ionskincare.com"
-      ];    
+}
+
+function noReplySearch() {
+    var noreply = getNoReplySearchTerms();
+    var ui = SpreadsheetApp.getUi();
+    var message = "You are about to search for no-reply emails";
     
-      var ui = SpreadsheetApp.getUi();
-      var message = "You are about to search for the following clients:\n\n" + clients.join("\n");
-      
-      ui.alert(message);
-      processSearch(clients);
-    }
-  
-    function noReplySearch() {
-        var noreply = [
-            "noreply", "no-reply", "reply"
-        ];    
-      
-        var ui = SpreadsheetApp.getUi();
-        var message = "You are about to search for no-reply emails";
-        
-        ui.alert(message);
-        processSearch(noreply);
-      }
+    ui.alert(message);
+    processSearch(noreply);
+}
+
+function allSearch() {
+    var ui = SpreadsheetApp.getUi();
+
+    // Get and flatten social media and e-commerce search terms
+    var socialMediaAndECommerce = Object.values(getSocialAndECommerceSearchTerms()).reduce((acc, val) => acc.concat(val), []);
+    var clients = getClientSearchTerms();
+    var noReplyEmails = getNoReplySearchTerms();
+
+    // Combine all keywords into one list
+    var allKeywords = [].concat(clients, socialMediaAndECommerce, noReplyEmails);
     
-    function allSearch() {       
-        var ui = SpreadsheetApp.getUi();
-        var message = "You are about to search for both social and client websites:\n\n" + clients.join("\n");
-        
-        ui.alert(message);
-        clientSearch();
-        socialSearch();
-        noReplySearch();
-      }
-  
-  function processSearch(keywords) {
+    ui.alert('You are about to search for everything: Clients, Social websites, and no-reply emails.');
+    processSearch(allKeywords);
+}
+
+
+function processSearch(keywords) {
     var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
     var data = sheet.getDataRange().getValues();
     var deletedRows = 0;
